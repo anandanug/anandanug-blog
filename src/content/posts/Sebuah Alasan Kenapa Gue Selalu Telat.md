@@ -3,7 +3,7 @@ title: Sebuah Alasan Kenapa Gue Selalu Telat
 pubDate: '2026-01-15'
 ---
 
-![_boker](./_assets/boker.png)
+<!-- ![_boker](./_assets/boker.png) -->
 
 <!-- <img
   src="./_assets/boker.png"

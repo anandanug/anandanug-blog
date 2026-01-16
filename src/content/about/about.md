@@ -7,10 +7,8 @@ This content will be displayed at the top of the index page.
 You can leave this empty if you don’t want to show any content.
 -->
 
-A static blog theme based on [Astro](https://astro.build), designed for clarity and focus.
+Selamat datang di _dumping ground_ gue.
 
-With a deliberately minimal design, this layout ensures your content takes center stage. It's built for flexibility, offering customization options that honor its clean and elegant aesthetic.
+Di sini isinya campur aduk banget. Dari hasil mikir keras soal gimana cara ngebangun sesuatu biar nggak _crash_, sampe hal-hal nggak penting yang tiba-tiba lewat di otak pas lagi mandi. Kadang isinya dokumentasi pas otak lagi mode 'serius', kadang cuma sekadar mode 'bentar, ini maksudnya gimana ya?'.
 
-Effortlessly share your thoughts in _a calm & dustless space._
-
-Check posts for details and view source on [GitHub](https://github.com/the3ash/astro-chiri).
+Gue emang suka bikin rencana dan ngerapiin sistem yang ribet, tapi di sini gue bebasin diri buat jadi se-random mungkin. Nggak ada aturan main di sini—mau dapet insight ya syukur, mau dapet kegabutan ya emang itu tujuannya. _Enjoy the mess!_

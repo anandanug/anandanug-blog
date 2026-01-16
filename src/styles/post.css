@@ -44,9 +44,10 @@
 }
 
 /* Italic text */
-.prose em {
-  font-family: var(--serif);
-  font-style: italic;
+.prose em,
+.prose i {
+  font-family: inherit;
+  font-style: italic !important;
   letter-spacing: 0;
 }
 
@@ -107,11 +108,20 @@
 }
 
 /* Images */
-.prose img {
+/* default image style*/
+/* .prose img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 2em 0;
+} */
+
+.prose img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 2em auto; 
 }
 
 .img-placeholder {

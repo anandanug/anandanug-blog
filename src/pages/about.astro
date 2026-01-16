@@ -1,0 +1,30 @@
+---
+import IndexLayout from '@/layouts/IndexLayout.astro'
+import { getEntry } from 'astro:content'
+import { render } from 'astro:content'
+import { themeConfig } from '@/config'
+
+const aboutEntry = await getEntry('about', 'about')
+const { Content } = aboutEntry ? await render(aboutEntry) : { Content: null }
+---
+
+<IndexLayout title={`About Me · ${themeConfig.site.title}`} description={themeConfig.site.description}>
+  <main>
+    {Content ? (
+      <div class="about-content prose">
+        <Content />
+      </div>
+    ) : (
+      <div class="about-content">
+        <p>About me content coming soon...</p>
+      </div>
+    )}
+  </main>
+</IndexLayout>
+
+<style>
+  .about-content {
+    max-width: 100%;
+  }
+</style>
+

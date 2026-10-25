@@ -28,9 +28,9 @@ Coba sambungin informasi tadi ke hidup lo. Bandingin sama pengalaman pribadi ata
 
 Ini yang paling sering orang (termasuk gue) lupain. Tanpa ini, ilmu lo bakal nguap gitu aja. Caranya?
 
-- <mark>Feynman Technique</mark>: Jelasin konsepnya ke orang lain pake bahasa yang paling bego.
-- <mark>Direct Practice</mark>: Langsung praktekin di hari yang sama.
-- <mark>Personal Notes</mark>: Tulis ulang pake gaya bahasa lo sendiri, bukan `copy-paste`.
+- **Feynman Technique**: Jelasin konsepnya ke orang lain pake bahasa yang paling bego.
+- **Direct Practice**: Langsung praktekin di hari yang sama.
+- **Personal Notes**: Tulis ulang pake gaya bahasa lo sendiri, bukan _copy-paste_.
 
 Alurnya simpel:
 

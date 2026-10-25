@@ -27,7 +27,8 @@ const posts = defineCollection({
         }, z.array(z.string()))
         .optional()
         .default([]),
-      label: z.string().optional()
+      label: z.string().optional(),
+      author: z.string().optional()
     })
 })
 

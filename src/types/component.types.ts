@@ -15,6 +15,7 @@ export interface PostLayoutProps {
   tags?: string[]
   labels?: string[]
   label?: string
+  author?: string
   currentSlug?: string
 }
 

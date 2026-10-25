@@ -1,7 +1,6 @@
 ---
 import '@/styles/global.css'
 import type { PostLayoutProps } from '@/types'
-import FormattedDate from '@/components/widgets/FormattedDate.astro'
 import FootnoteScroll from '@/components/widgets/FootnoteScroll.astro'
 import BaseHead from '@/components/layout/BaseHead.astro'
 import Footer from '@/components/layout/Footer.astro'
@@ -17,6 +16,7 @@ import XPOST from '@/components/ui/XPOST.astro'
 import CopyCode from '@/components/ui/CopyCode.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import RelatedPosts from '@/components/widgets/RelatedPosts.astro'
+import ArticleHeader from '@/components/widgets/ArticleHeader.astro'
 
 import { themeConfig } from '@/config'
 
@@ -28,6 +28,7 @@ const {
   tags = [],
   labels = [],
   label,
+  author,
   currentSlug
 } = Astro.props as PostLayoutProps
 
@@ -56,33 +57,16 @@ const allTags = Array.from(new Set([...tags, ...labels, ...(label ? [label] : []
         <BackButton />
         {themeConfig.post.toc && <TableOfContents toc={toc} />}
 
-        <div class="top-accent-line" aria-hidden="true">
-          <div class="accent-bar" />
-        </div>
+        <ArticleHeader
+          title={title}
+          pubDate={pubDate}
+          tags={tags}
+          labels={labels}
+          label={label}
+          author={author}
+          readingTime={readingTime}
+        />
 
-        <div class="title">
-          {
-            allTags.length > 0 && (
-              <div class="post-labels">
-                {allTags.map((t) => (
-                  <span class="post-label">{t}</span>
-                ))}
-              </div>
-            )
-          }
-          <h1>{title}</h1>
-          <div class="date">
-            <FormattedDate date={pubDate} context="post" />
-            {
-              themeConfig.post.readingTime && readingTime && (
-                <span class="reading-time">
-                  <span class="separator">·</span>
-                  {readingTime.text}
-                </span>
-              )
-            }
-          </div>
-        </div>
         <article class="content">
           <slot />
         </article>
@@ -110,53 +94,5 @@ const allTags = Array.from(new Set([...tags, ...labels, ...(label ? [label] : []
 
   .post-container main {
     flex: 1;
-  }
-
-  .top-accent-line {
-    width: 100%;
-    height: 1px;
-    background-color: var(--border);
-    margin-bottom: 2rem;
-    position: relative;
-    border-radius: 1px;
-  }
-
-  .accent-bar {
-    position: absolute;
-    top: -0.5px;
-    left: 0;
-    width: 2.75rem;
-    height: 2px;
-    background-color: var(--text-primary);
-    opacity: 0.85;
-    border-radius: 2px;
-  }
-
-  .post-labels {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.875rem;
-  }
-
-  .post-label {
-    font-size: 0.6875rem !important;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
-    background-color: var(--code-bg);
-    border: 1px solid var(--border);
-    padding: 0.2rem 0.625rem;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1.35;
-    transition: all 0.15s ease-out;
-  }
-
-  .post-label:hover {
-    color: var(--text-primary);
-    border-color: var(--text-tertiary);
   }
 </style>

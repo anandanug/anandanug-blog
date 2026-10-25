@@ -30,7 +30,7 @@
     }
 
     window.ThemeManager = {
-      STORAGE_KEY: 'chiri-theme',
+      STORAGE_KEY: 'theme-preference',
       initialized: false,
 
       getSystemTheme() {
@@ -59,7 +59,7 @@
 
       getEffectiveTheme() {
         const stored = this.getStoredTheme()
-        return stored || this.getSystemTheme()
+        return stored || 'light'
       },
 
       isUsingSystemTheme() {
@@ -94,17 +94,8 @@
       init() {
         if (this.initialized) return
 
-        // Set initial theme (maintain current theme when refreshing page)
+        // Set initial theme (default to light or stored user preference)
         this.applyTheme(this.getEffectiveTheme())
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-          const newSystemTheme = e.matches ? 'dark' : 'light'
-
-          // Always follow system theme changes and update stored theme preference
-          this.setStoredTheme(newSystemTheme)
-          this.applyTheme(newSystemTheme)
-        })
 
         this.initialized = true
       }
@@ -144,12 +135,5 @@
 
     document.addEventListener('astro:after-swap', applyThemeAfterNavigation)
     document.addEventListener('astro:page-load', applyThemeAfterNavigation)
-
-    // Handle system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (window.ThemeManager && window.ThemeManager.isUsingSystemTheme()) {
-        setTimeout(applyTheme, 0)
-      }
-    })
   })()
 </script>

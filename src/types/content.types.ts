@@ -19,4 +19,7 @@ export interface TOCItem {
 // PostList component props interface
 export interface PostListProps {
   posts: CollectionEntry<'posts'>[]
+  moreHref?: string // Optional link shown below the list (e.g. to the archive)
+  moreLabel?: string // Label for the link above
+  emptyText?: string // Text shown when there are no posts
 }

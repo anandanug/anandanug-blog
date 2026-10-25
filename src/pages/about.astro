@@ -9,17 +9,15 @@ const { Content } = aboutEntry ? await render(aboutEntry) : { Content: null }
 ---
 
 <IndexLayout title={`About Me · ${themeConfig.site.title}`} description={themeConfig.site.description}>
-  <main>
-    {Content ? (
-      <div class="about-content prose">
-        <Content />
-      </div>
-    ) : (
-      <div class="about-content">
-        <p>About me content coming soon...</p>
-      </div>
-    )}
-  </main>
+  {Content ? (
+    <div class="about-content prose">
+      <Content />
+    </div>
+  ) : (
+    <div class="about-content">
+      <p>About me content coming soon...</p>
+    </div>
+  )}
 </IndexLayout>
 
 <style>

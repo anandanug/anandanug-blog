@@ -1,0 +1,40 @@
+---
+import IndexLayout from '@/layouts/IndexLayout.astro'
+import PostList from '@/components/widgets/PostList.astro'
+import { themeConfig } from '@/config'
+import { getSortedFilteredPosts } from '@/utils/draft'
+
+const posts = await getSortedFilteredPosts()
+---
+
+<IndexLayout
+  title={`All posts · ${themeConfig.site.title}`}
+  description={`All posts from ${themeConfig.site.title}`}
+>
+  <header class="archive-header">
+    <h1>All posts</h1>
+    <p class="count">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+  </header>
+  <PostList posts={posts} />
+</IndexLayout>
+
+<style>
+  .archive-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+
+  .archive-header h1 {
+    margin: 0;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .count {
+    margin: 0;
+    font-size: var(--font-size-s);
+    color: var(--text-tertiary);
+  }
+</style>

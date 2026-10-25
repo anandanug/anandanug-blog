@@ -5,12 +5,20 @@ import PostList from '@/components/widgets/PostList.astro'
 import { themeConfig } from '@/config'
 import { getSortedFilteredPosts } from '@/utils/draft'
 
-const posts = await getSortedFilteredPosts()
+const allPosts = await getSortedFilteredPosts()
+
+// Only show posts from the current year on the homepage
+const currentYear = new Date().getFullYear()
+const posts = allPosts.filter((post) => post.data.pubDate.getFullYear() === currentYear)
+const hasOlderPosts = allPosts.length > posts.length
 ---
 
 <IndexLayout title={themeConfig.site.title} description={themeConfig.site.description}>
   <About />
-  <main>
-    <PostList posts={posts} />
-  </main>
+  <PostList
+    posts={posts}
+    moreHref={hasOlderPosts ? '/archive/' : undefined}
+    moreLabel="All posts"
+    emptyText="No posts this year yet."
+  />
 </IndexLayout>

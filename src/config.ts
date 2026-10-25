@@ -4,9 +4,9 @@ export const themeConfig: ThemeConfig = {
   // SITE INFO ///////////////////////////////////////////////////////////////////////////////////////////
   site: {
     website: 'https://anandanug.com/', // Site domain
-    title: 'Agra Blog', // Site title
+    title: 'Ananda A. Ramadhan', // Site title
     author: 'Ananda Anugrah Ramadhan', // Author name
-    description: 'Personal blog of Agra', // Site description
+    description: 'Personal blog of Ananda A. Ramadhan', // Site description
     language: 'en-US' // Default language
   },
 
